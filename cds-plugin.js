@@ -5,7 +5,7 @@ class AsyncAPI {
     get compile() {
       let compile = require('@sap/cds/lib/compile/cds-compile')
       cds.extend (compile.to.constructor) .with (class {
-        get asyncapi() { return super.asyncapi = require('./srv/compile/lib') }
+        get asyncapi() { return super.asyncapi = require('./lib/compile') }
       })
       return super.compile = compile
     }

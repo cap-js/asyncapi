@@ -1,4 +1,4 @@
-const toAsyncAPI = require('../../../srv/compile/lib');
+const toAsyncAPI = require('../../../lib/compile');
 const cds = require('../../../cds-plugin');
 const { read } = cds.utils;
 const { join } = require('path');
@@ -85,5 +85,13 @@ describe('asyncapi export: presets and annotations', () => {
         const inputCDS = await read(join(baseInputPath, 'invalid', 'noTitle.cds'));
         const csn = cds.compile.to.csn(inputCDS);
         expect(() => toAsyncAPI(csn)).toThrowError("Title and Version info annotations needs to be added to the service(s).");
+    });
+
+    test('Test for application namespace', async () => {
+        const inputCDS = await read(join(baseInputPath, 'valid', 'presets.cds'));
+        cds.env.export.asyncapi = {};
+        const csn = cds.compile.to.csn(inputCDS);
+        const generatedAsyncAPI = toAsyncAPI(csn);
+        expect(generatedAsyncAPI).toHaveProperty('x-sap-application-namespace','sap')
     });
 });

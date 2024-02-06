@@ -1,4 +1,4 @@
-const toAsyncAPI = require('../../../srv/compile/lib');
+const toAsyncAPI = require('../../../lib/compile');
 const cds = require('../../../cds-plugin');
 const { readdir, read, path: { resolve } } = cds.utils;
 const { join } = require('path');

@@ -1,5 +1,5 @@
 const cds = require('../../../../../cds-plugin');
-const toAsyncAPI = require('../../../../../srv/compile/lib');
+const toAsyncAPI = require('../../../../../lib/compile');
 const { read } = cds.utils;
 const { join } = require('path');
 const baseInputPath = join(__dirname, 'input');
