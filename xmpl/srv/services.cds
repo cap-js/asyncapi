@@ -42,7 +42,7 @@ extend service ProcessorService {
     }
     @AsyncAPI.EventSchemaVersion  : '1.0.0'
 
-    event ProcessorService_event_V1 : projection on ProcessorService.Incidents;
+    event event.v1 : projection on ProcessorService.Incidents;
 
 
 }
