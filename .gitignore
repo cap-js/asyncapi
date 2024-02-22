@@ -1,0 +1,4 @@
+node_modules/
+gen/
+out/
+@cds-models/

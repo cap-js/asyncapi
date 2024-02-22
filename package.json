@@ -1,0 +1,35 @@
+{
+  "name": "@cap-js/asyncapi",
+  "version": "0.1.0",
+  "description": "CAP Plugin for AsyncAPI",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cap-js/asyncapi.git"
+  },
+  "homepage": "https://cap.cloud.sap/",
+  "keywords": [
+    "CAP",
+    "CDS",
+    "AsyncAPI",
+    "Node.js"
+  ],
+  "author": "SAP SE (https://www.sap.com)",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "cds-plugin.js",
+  "files": [
+    "cds-plugin.js",
+    "lib/"
+  ],
+  "scripts": {
+    "test": "npx jest --silent",
+    "lint": "npx eslint ."
+  },
+  "peerDependencies": {
+    "@sap/cds": ">=7"
+  },
+  "devDependencies": {
+    "@sap/cds": "^7",
+    "jest": "^29",
+    "eslint": "^8.56.0"
+  }
+}
