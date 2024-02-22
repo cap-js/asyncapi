@@ -1,0 +1,13 @@
+{
+  "name": "@capire/asyncapi-sample",
+  "version": "1.0.0",
+  "dependencies": {
+    "@cap-js/asyncapi": "*",
+    "@capire/incidents": "*",
+    "@sap/cds": "*"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "*"
+  },
+  "private": true
+}
