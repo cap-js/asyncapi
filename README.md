@@ -1,4 +1,4 @@
-[![REUSE status]()]()
+[![REUSE status](https://api.reuse.software/badge/github.com/cap-js/asyncapi)](https://api.reuse.software/info/github.com/cap-js/asyncapi)
 
 # AsyncAPI Plugin
 
