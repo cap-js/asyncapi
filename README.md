@@ -14,7 +14,7 @@ The `@cap-js/asyncapi` package is a [CDS plugin](https://cap.cloud.sap/docs/node
 
 ## Setup
 
-To use `cds compile to asyncapi` functionality, simply add this self-configuring plugin package to your project:
+To use `cds compile --to asyncapi` functionality, simply add this self-configuring plugin package to your project:
 
 ```sh
  npm add @cap-js/asyncapi
@@ -26,16 +26,25 @@ In this guide, we use the [Incidents Management reference sample app](https://gi
 
 ### 1. Usage of programatic API
 
-await `cds.compile(<file path>).to.asyncapi()` to invoke `cds compile to asyncapi` programatically.
+To invoke `cds compile --to asyncapi` programatically:
 
-For more information, visit [CAPire](https://cap.cloud.sap/docs/node.js/cds-compile#to-asyncapi)
+```sh
+await cds.compile(<filename>).to.asyncapi() 
+```
+
+For more information, visit [capire](https://cap.cloud.sap/docs/node.js/cds-compile#to-asyncapi)
 
 
 ### 2. Usage from CLI 
 
-Run `cds compile <file path> -2 asyncapi` in the CLI to generate the AsyncAPI document.
+Run the following command in the CLI to generate the AsyncAPI document.
 
-For more information, visit [CAPire](https://cap.cloud.sap/docs/advanced/asyncapi#cli)
+```sh
+cds compile <filename> --to asyncapi
+```
+
+
+For more information, visit [capire](https://cap.cloud.sap/docs/advanced/publishing-apis/asyncapi#cli)
 
 ## Contributing
 
@@ -47,4 +56,4 @@ We as members, contributors, and leaders pledge to make participation in our com
 
 ## Licensing
 
-Copyright 2024 SAP SE or an SAP affiliate company and contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool]().
+Copyright 2024 SAP SE or an SAP affiliate company and contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/cap-js/asyncapi).
