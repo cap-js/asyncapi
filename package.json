@@ -25,10 +25,9 @@
     "lint": "npx eslint ."
   },
   "peerDependencies": {
-    "@sap/cds": ">=7"
+    "@sap/cds": ">=7.3"
   },
   "devDependencies": {
-    "@sap/cds": "^7",
     "jest": "^29",
     "eslint": "^8.56.0"
   }
