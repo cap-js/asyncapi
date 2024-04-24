@@ -2,25 +2,14 @@
 
 # AsyncAPI Plugin
 
-The `@cap-js/asyncapi` package is a [CDS plugin](https://cap.cloud.sap/docs/node.js/cds-plugins#cds-plugin-packages) that provides support for AsyncAPI document compilation.
+The `@cap-js/asyncapi` is a package that provides support for AsyncAPI document compilation.
 
 ### Table of Contents
 
-- [Setup](#setup)
 - [Generate AsyncAPI document](#generate-asyncapi-document)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 - [Licensing](#licensing)
-
-## Setup
-
-To use `cds compile --to asyncapi` functionality, simply add this self-configuring plugin package to your project:
-
-```sh
- npm add @cap-js/asyncapi
-```
-
-In this guide, we use the [Incidents Management reference sample app](https://github.com/cap-js/incidents-app) as the base, to generate the AsyncAPI document for the `services.cds` file.
 
 ## Generate AsyncAPI document
 
