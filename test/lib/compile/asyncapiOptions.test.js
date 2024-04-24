@@ -1,5 +1,5 @@
 const toAsyncAPI = require('../../../lib/compile');
-require('../../../').registerCompileTargets();
+require('../../../').registerAsyncapiCompileTarget();
 const cds = require('@sap/cds');
 const { readdir, read, path: { resolve } } = cds.utils;
 const { join } = require('path');
