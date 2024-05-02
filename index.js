@@ -6,7 +6,7 @@ function _lazyRegisterCompileTarget() {
   return value
 }
 
-const registerAsyncapiCompileTarget = () => {
+const register = () => {
     Object.defineProperty(cds.compile.to, "asyncapi", {
       get: _lazyRegisterCompileTarget,
       configurable: true
@@ -14,4 +14,4 @@ const registerAsyncapiCompileTarget = () => {
   }
 
 
-module.exports = { registerAsyncapiCompileTarget }
+module.exports = { register }

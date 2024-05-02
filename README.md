@@ -25,7 +25,7 @@ $ npm install @cap-js/asyncapi
 ### Usage
 
 ```sh
-require("@cap-js/asyncapi").registerAsyncapiCompileTarget()
+require("@cap-js/asyncapi").register()
 ```
 
 ## Generate AsyncAPI document
