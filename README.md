@@ -1,15 +1,32 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/cap-js/asyncapi)](https://api.reuse.software/info/github.com/cap-js/asyncapi)
 
-# AsyncAPI Plugin
+# AsyncAPI 
+
+## About this project
 
 The `@cap-js/asyncapi` is a package that provides support for AsyncAPI document compilation.
 
 ### Table of Contents
 
+- [Requirements and Setup](#requirements-and-setup)
 - [Generate AsyncAPI document](#generate-asyncapi-document)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 - [Licensing](#licensing)
+
+## Requirements and Setup
+
+### Installation
+
+```sh
+$ npm install @cap-js/asyncapi
+```
+
+### Usage
+
+```sh
+require("@cap-js/asyncapi").registerAsyncapiCompileTarget()
+```
 
 ## Generate AsyncAPI document
 
@@ -21,7 +38,7 @@ To invoke `cds compile --to asyncapi` programatically:
 await cds.compile(<filename>).to.asyncapi() 
 ```
 
-For more information, visit [capire](https://cap.cloud.sap/docs/node.js/cds-compile#to-asyncapi)
+For more information, visit [capire](https://cap.cloud.sap/docs/node.js/cds-compile#asyncapi)
 
 
 ### 2. Usage from CLI 
@@ -29,7 +46,7 @@ For more information, visit [capire](https://cap.cloud.sap/docs/node.js/cds-comp
 Run the following command in the CLI to generate the AsyncAPI document.
 
 ```sh
-cds compile <filename> --to asyncapi
+$ cds compile <filename> --to asyncapi
 ```
 
 
@@ -41,7 +58,7 @@ This project is open to feature requests/suggestions, bug reports etc. via [GitH
 
 ## Code of Conduct
 
-We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone. By participating in this project, you agree to abide by its [Code of Conduct](CODE_OF_CONDUCT.md) at all times.
+We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone. By participating in this project, you agree to abide by its [Code of Conduct](https://github.com/cap-js/.github/blob/main/CODE_OF_CONDUCT.md) at all times.
 
 ## Licensing
 
