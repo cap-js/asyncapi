@@ -38,7 +38,7 @@ To invoke `cds compile --to asyncapi` programatically:
 await cds.compile(<filename>).to.asyncapi() 
 ```
 
-For more information, visit [capire](https://cap.cloud.sap/docs/node.js/cds-compile#to-asyncapi)
+For more information, visit [capire](https://cap.cloud.sap/docs/node.js/cds-compile#asyncapi)
 
 
 ### 2. Usage from CLI 
