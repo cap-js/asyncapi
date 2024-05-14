@@ -23,11 +23,14 @@ $ npm install @cap-js/asyncapi
 
 ### Usage
 
-```sh
+```js
+const cds = require('@sap/cds')
 const { compile } = require('@cap-js/asyncapi')
 ```
-```sh
-compile(csn)
+
+```js
+const csn = await cds.load(cds.env.folders.srv)
+const asyncapiDocument = compile(csn)
 ```
 
 ## Contributing
