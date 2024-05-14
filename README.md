@@ -24,10 +24,10 @@ $ npm install @cap-js/asyncapi
 ### Usage
 
 ```sh
-const processor = require('@cap-js/asyncapi')
+const { compile } = require('@cap-js/asyncapi')
 ```
 ```sh
-processor(csn)
+compile(csn)
 ```
 
 ## Contributing
