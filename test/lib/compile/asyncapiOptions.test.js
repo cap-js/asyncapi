@@ -1,5 +1,4 @@
 const toAsyncAPI = require('../../../lib/compile');
-require('../../../').register();
 const cds = require('@sap/cds');
 const { readdir, read, path: { resolve } } = cds.utils;
 const { join } = require('path');
@@ -65,7 +64,8 @@ describe('asyncapi export: options', () => {
     });
 
     // generates two files for services set to all
-    const generatedAsyncAPI = await cds.compile(fileList).to.asyncapi({ service: 'all' });
+    const csn = await cds.compile(fileList).to.csn(); 
+    const generatedAsyncAPI = toAsyncAPI(csn, { service: 'all' });
     const filesFound = new Set();
     for (const [, metadata] of generatedAsyncAPI) {
       filesFound.add(metadata.file);
