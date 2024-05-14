@@ -9,7 +9,6 @@ The `@cap-js/asyncapi` is a package that provides support for AsyncAPI document 
 ### Table of Contents
 
 - [Requirements and Setup](#requirements-and-setup)
-- [Generate AsyncAPI document](#generate-asyncapi-document)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 - [Licensing](#licensing)
@@ -25,32 +24,11 @@ $ npm install @cap-js/asyncapi
 ### Usage
 
 ```sh
-require("@cap-js/asyncapi").register()
+const processor = require('@cap-js/asyncapi')
 ```
-
-## Generate AsyncAPI document
-
-### 1. Usage of programatic API
-
-To invoke `cds compile --to asyncapi` programatically:
-
 ```sh
-await cds.compile(<filename>).to.asyncapi() 
+processor(csn)
 ```
-
-For more information, visit [capire](https://cap.cloud.sap/docs/node.js/cds-compile#asyncapi)
-
-
-### 2. Usage from CLI 
-
-Run the following command in the CLI to generate the AsyncAPI document.
-
-```sh
-$ cds compile <filename> --to asyncapi
-```
-
-
-For more information, visit [capire](https://cap.cloud.sap/docs/advanced/publishing-apis/asyncapi#cli)
 
 ## Contributing
 
