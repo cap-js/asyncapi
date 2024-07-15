@@ -92,6 +92,6 @@ describe('asyncapi export: presets and annotations', () => {
         cds.env.export.asyncapi = {};
         const csn = cds.compile.to.csn(inputCDS);
         const generatedAsyncAPI = toAsyncAPI(csn);
-        expect(generatedAsyncAPI).toHaveProperty('x-sap-application-namespace','customer.@cap-js/asyncapi')
+        expect(generatedAsyncAPI).toHaveProperty('x-sap-application-namespace','customer.cap-js-asyncapi')
     });
 });
