@@ -94,4 +94,15 @@ describe('asyncapi export: presets and annotations', () => {
         const generatedAsyncAPI = toAsyncAPI(csn);
         expect(generatedAsyncAPI).toHaveProperty('x-sap-application-namespace','customer.cap-js-asyncapi')
     });
+
+    test('Console warnings and errors are not used', async () => {
+        const inputCDS = await read(join(baseInputPath, 'valid', 'presets.cds'));
+        const csn = cds.compile.to.csn(inputCDS);
+        const generatedAsyncAPI = toAsyncAPI(csn);
+    
+        expect(generatedAsyncAPI).not.toHaveProperty('console.warn');
+        expect(generatedAsyncAPI).not.toHaveProperty('console.error');
+    });
+    
+    
 });
