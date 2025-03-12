@@ -81,10 +81,12 @@ describe('asyncapi export: presets and annotations', () => {
         expect(() => toAsyncAPI(csn)).toThrowError("There are no service definitions found in the given model(s).");
     });
 
-    test('Negative test for version', async () => {
+    test('Check for default title and version if not provided in the input', async () => {
         const inputCDS = await read(join(baseInputPath, 'invalid', 'noTitle.cds'));
         const csn = cds.compile.to.csn(inputCDS);
-        expect(() => toAsyncAPI(csn)).toThrowError("Title and Version info annotations needs to be added to the service(s).");
+        const generatedAsyncAPI = toAsyncAPI(csn);
+        expect(generatedAsyncAPI).toHaveProperty('info.title', `Use @title: '...' on your CDS service to provide a meaningful title.`);
+        expect(generatedAsyncAPI).toHaveProperty('info.version', '1.0.0');
     });
 
     test('Test for application namespace', async () => {
@@ -93,5 +95,13 @@ describe('asyncapi export: presets and annotations', () => {
         const csn = cds.compile.to.csn(inputCDS);
         const generatedAsyncAPI = toAsyncAPI(csn);
         expect(generatedAsyncAPI).toHaveProperty('x-sap-application-namespace','customer.cap-js-asyncapi')
+    });
+    test('Console warnings and errors are not used', async () => {
+        const inputCDS = await read(join(baseInputPath, 'valid', 'presets.cds'));
+        const csn = cds.compile.to.csn(inputCDS);
+        const generatedAsyncAPI = toAsyncAPI(csn);
+
+        expect(generatedAsyncAPI).not.toHaveProperty('console.warn');
+        expect(generatedAsyncAPI).not.toHaveProperty('console.error');
     });
 });
