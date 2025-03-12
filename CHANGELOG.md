@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## Version 1.0.3 - TBD
 
+### Added
+
+- Added defaults for `@AsyncAPI.SchemaVersion` and `@AsyncAPI.Title`.
+
 ### Changed
 
 - Replaced `console.warn` statements with `cds.debug` logs for warning messages.
