@@ -81,7 +81,14 @@ describe('asyncapi export: to json schema', () => {
   })
 
   test('Test for i18n in Descriptions', async () => {
-    await compileAndCheck('i18n-descriptions.cds', 'i18n-descriptions.json')
+    // Save original cds.root and set to input directory so CDS can find i18n files
+    const originalRoot = cds.root
+    try {
+      cds.root = baseInputPath
+      await compileAndCheck('i18n-descriptions.cds', 'i18n-descriptions.json')
+    } finally {
+      cds.root = originalRoot
+    }
   })
 
 })
