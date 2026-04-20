@@ -1,4 +1,4 @@
-const js = require('@eslint/js');
+const js = require('@eslint/js')
 
 module.exports = [
   js.configs.recommended,
@@ -20,7 +20,8 @@ module.exports = [
     },
     rules: {
       'no-unused-vars': ['warn', { argsIgnorePattern: 'lazy' }],
-      'no-extra-semi': 'warn',
+      'semi': ['warn', 'never'],
+      'quotes': ['warn', 'single'],
     },
   },
-];
+]
