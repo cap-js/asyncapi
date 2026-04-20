@@ -1,3 +1,5 @@
+const { describe, test, beforeEach } = require('node:test');
+const assert = require('node:assert');
 const cds = require('@sap/cds');
 const toAsyncAPI = require('../../../../../lib/compile');
 const { read } = cds.utils;
@@ -10,7 +12,7 @@ async function compileAndCheck(inputFile, outputFile) {
   const expectedAsyncAPI = JSON.stringify(await read(join(baseOutputPath, outputFile)));
   const csn = cds.compile.to.csn(inputCDS);
   const generatedAsyncAPI = toAsyncAPI(csn);
-  expect(generatedAsyncAPI).toEqual(JSON.parse(expectedAsyncAPI));
+  assert.deepStrictEqual(generatedAsyncAPI, JSON.parse(expectedAsyncAPI));
 }
 
 describe('asyncapi export: to json schema', () => {
