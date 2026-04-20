@@ -80,4 +80,8 @@ describe('asyncapi export: to json schema', () => {
     await compileAndCheck('descriptions.cds', 'descriptions.json')
   })
 
+  test('Test for i18n in Descriptions', async () => {
+    await compileAndCheck('i18n-descriptions.cds', 'i18n-descriptions.json')
+  })
+
 })
