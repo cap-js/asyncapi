@@ -1,4 +1,4 @@
-const js = require('@eslint/js');
+const js = require('@eslint/js')
 
 module.exports = [
   js.configs.recommended,
@@ -16,20 +16,12 @@ module.exports = [
         module: 'readonly',
         require: 'readonly',
         exports: 'writable',
-        // Jest globals
-        describe: 'readonly',
-        test: 'readonly',
-        expect: 'readonly',
-        beforeEach: 'readonly',
-        afterEach: 'readonly',
-        beforeAll: 'readonly',
-        afterAll: 'readonly',
-        jest: 'readonly',
       },
     },
     rules: {
       'no-unused-vars': ['warn', { argsIgnorePattern: 'lazy' }],
-      'no-extra-semi': 'warn',
+      'semi': ['warn', 'never'],
+      'quotes': ['warn', 'single'],
     },
   },
-];
+]

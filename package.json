@@ -22,14 +22,13 @@
     "LICENSE"
   ],
   "scripts": {
-    "test": "npx jest --silent",
+    "test": "node --test",
     "lint": "npx eslint ."
   },
   "peerDependencies": {
     "@sap/cds": ">=7.6"
   },
   "devDependencies": {
-    "jest": "^29",
     "eslint": "^10.0.0"
   }
 }
