@@ -9,11 +9,11 @@ service MyService {
 
     @Core.Description: '{i18n>CORE_FIELD_DESC}'
     fieldWithCoreI18n: String;
-    
+
     @description: 'Plain text description'
     fieldWithPlainText: String;
   };
-  
+
   @Core.Description: '{i18n>EVENT_DESC}'
   event I18nEvent : {
     @description: '{i18n>PRODUCT_ID}'
