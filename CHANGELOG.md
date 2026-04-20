@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [Unreleased]
+
+### Added
+
+- Support for `@Core.Description` annotation as an alternative to `@description`, aligned with OpenAPI behavior
+
 ## Version 1.0.3 - 12-03-2025
 
 ### Added
