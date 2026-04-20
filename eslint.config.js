@@ -16,15 +16,6 @@ module.exports = [
         module: 'readonly',
         require: 'readonly',
         exports: 'writable',
-        // Jest globals
-        describe: 'readonly',
-        test: 'readonly',
-        expect: 'readonly',
-        beforeEach: 'readonly',
-        afterEach: 'readonly',
-        beforeAll: 'readonly',
-        afterAll: 'readonly',
-        jest: 'readonly',
       },
     },
     rules: {

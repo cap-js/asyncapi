@@ -1,3 +1,5 @@
+const { describe, test, beforeEach } = require('node:test');
+const assert = require('node:assert');
 const toAsyncAPI = require('../../../lib/compile');
 const cds = require('@sap/cds');
 const { readdir, read, path: { resolve } } = cds.utils;
@@ -19,7 +21,7 @@ describe('asyncapi export: options', () => {
     const csn = cds.compile.to.csn(inputCDS);
     const expectedAsyncAPI = JSON.stringify(await read(join(baseOutputPath, 'base.json')));
     const generatedAsyncAPI = toAsyncAPI(csn);
-    expect(generatedAsyncAPI).toEqual(JSON.parse(expectedAsyncAPI));
+    assert.deepStrictEqual(generatedAsyncAPI, JSON.parse(expectedAsyncAPI));
   });
 
   test('Service flag with an invalid service', async () => {
@@ -27,7 +29,7 @@ describe('asyncapi export: options', () => {
     const csn = cds.compile.to.csn(inputCDS);
 
     // throws error if service doesn't exist
-    expect(() => toAsyncAPI(csn, { service: 'foo' })).toThrowError(/not found/si);
+    assert.throws(() => toAsyncAPI(csn, { service: 'foo' }), /not found/i);
   });
 
   test('Service flag with a valid service name', async () => {
@@ -37,7 +39,7 @@ describe('asyncapi export: options', () => {
 
     // only generates one output if a service name is mentioned
     const generatedAsyncAPI = toAsyncAPI(csn, { service: 'com.sap.bookstore.BookStore' });
-    expect(generatedAsyncAPI).toEqual(JSON.parse(expectedAsyncAPI));
+    assert.deepStrictEqual(generatedAsyncAPI, JSON.parse(expectedAsyncAPI));
   });
 
   test('Service flag set to all', async () => {
@@ -51,10 +53,10 @@ describe('asyncapi export: options', () => {
     const filesFound = new Set();
     for (const [content, metadata] of asyncapi) {
       const expectedAsyncAPI = metadata.file.split('.')[3] === 'BookStore' ? expectedBookStoreServiceOutput : expectedAuthorServiceOutput;
-      expect(content).toEqual(JSON.parse(expectedAsyncAPI));
+      assert.deepStrictEqual(content, JSON.parse(expectedAsyncAPI));
       filesFound.add(metadata.file);
     }
-    expect(filesFound).toEqual(new Set(['com.sap.bookstore.BookStore', 'com.sap.bookstore.AuthorService']));
+    assert.deepStrictEqual(filesFound, new Set(['com.sap.bookstore.BookStore', 'com.sap.bookstore.AuthorService']));
   });
 
   test('Service flag set to all with directory', async () => {
@@ -64,20 +66,20 @@ describe('asyncapi export: options', () => {
     });
 
     // generates two files for services set to all
-    const csn = await cds.compile(fileList).to.csn(); 
+    const csn = await cds.compile(fileList).to.csn();
     const generatedAsyncAPI = toAsyncAPI(csn, { service: 'all' });
     const filesFound = new Set();
     for (const [, metadata] of generatedAsyncAPI) {
       filesFound.add(metadata.file);
     }
-    expect(filesFound).toEqual(new Set(['com.sap.bookstore.BookStore', 'com.sap.bookstore.AuthorService', 'com.sap.base.Base', 'com.sap.presets.S', 'com.sap.annotations.S']));
+    assert.deepStrictEqual(filesFound, new Set(['com.sap.bookstore.BookStore', 'com.sap.bookstore.AuthorService', 'com.sap.base.Base', 'com.sap.presets.S', 'com.sap.annotations.S']));
   });
 
   test('Merged flag throws an error if title and version are not specified', async () => {
     const inputCDS = await read(join(baseInputPath, 'valid', 'multipleService.cds'));
     const csn = cds.compile.to.csn(inputCDS);
 
-    expect(() => toAsyncAPI(csn, { service: 'all', "asyncapi:merged": true })).toThrowError("Preset for Title and Version info needs to be added when merged flag is used.");
+    assert.throws(() => toAsyncAPI(csn, { service: 'all', "asyncapi:merged": true }), /Preset for Title and Version info needs to be added when merged flag is used\./);
   });
 
   test('Merged flag', async () => {
@@ -94,7 +96,7 @@ describe('asyncapi export: options', () => {
 
     // only generates one output if merged flag is mentioned
     const generatedAsyncAPI = toAsyncAPI(csn, { service: 'all', "asyncapi:merged": true });
-    expect(generatedAsyncAPI).toEqual(JSON.parse(expectedAsyncAPI));
+    assert.deepStrictEqual(generatedAsyncAPI, JSON.parse(expectedAsyncAPI));
   });
 
 });
