@@ -74,4 +74,8 @@ describe('asyncapi export: to json schema', () => {
     await compileAndCheck('unManagedComposition.cds', 'unManagedComposition.json');
   });
 
+  test("Test for Description Annotations", async () => {
+    await compileAndCheck('descriptions.cds', 'descriptions.json');
+  });
+
 });
