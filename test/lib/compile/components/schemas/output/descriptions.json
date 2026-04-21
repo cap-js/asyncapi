@@ -160,7 +160,8 @@
           {
             "$ref": "#/components/messageTraits/CloudEventsContext.v1"
           }
-        ]
+        ],
+        "description": "Event with @Core.Description annotation"
       },
       "com.sap.test.MyService.Bar": {
         "x-sap-event-source": "/{region}/{applicationNamespace}/{instanceId}",
@@ -200,7 +201,8 @@
           {
             "$ref": "#/components/messageTraits/CloudEventsContext.v1"
           }
-        ]
+        ],
+        "description": "This takes priority"
       },
       "com.sap.test.MyService.Baz": {
         "x-sap-event-source": "/{region}/{applicationNamespace}/{instanceId}",
@@ -240,7 +242,8 @@
           {
             "$ref": "#/components/messageTraits/CloudEventsContext.v1"
           }
-        ]
+        ],
+        "description": "Doc comment as fallback"
       },
       "com.sap.test.MyService.TestEvent": {
         "x-sap-event-source": "/{region}/{applicationNamespace}/{instanceId}",
