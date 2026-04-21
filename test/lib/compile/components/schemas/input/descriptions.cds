@@ -14,6 +14,9 @@ service MyService {
     @Core.Description: 'This is ignored'
     fieldWithBoth: String;
 
+    /** Doc comment as fallback */
+    fieldWithDocComment: String;
+
     fieldWithoutDescription: String;
   };
 }

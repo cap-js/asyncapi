@@ -158,6 +158,10 @@
             "type": "string",
             "description": "This takes priority"
           },
+          "fieldWithDocComment": {
+            "type": "string",
+            "description": "Doc comment as fallback"
+          },
           "fieldWithoutDescription": {
             "type": "string"
           }

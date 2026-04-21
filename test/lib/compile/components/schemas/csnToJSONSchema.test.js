@@ -10,7 +10,7 @@ const baseOutputPath = join(__dirname, 'output')
 async function compileAndCheck(inputFile, outputFile) {
   const inputCDS = await read(join(baseInputPath, inputFile))
   const expectedAsyncAPI = JSON.stringify(await read(join(baseOutputPath, outputFile)))
-  const csn = cds.compile.to.csn(inputCDS)
+  const csn = cds.compile.to.csn(inputCDS, { docs: true })
   const generatedAsyncAPI = toAsyncAPI(csn)
   assert.deepStrictEqual(generatedAsyncAPI, JSON.parse(expectedAsyncAPI))
 }
@@ -76,7 +76,7 @@ describe('asyncapi export: to json schema', () => {
     await compileAndCheck('unManagedComposition.cds', 'unManagedComposition.json')
   })
 
-  test('Test for Description Annotations', async () => {
+  test('Test for @Core.Description annotation as fallback to @description', async () => {
     await compileAndCheck('descriptions.cds', 'descriptions.json')
   })
 
