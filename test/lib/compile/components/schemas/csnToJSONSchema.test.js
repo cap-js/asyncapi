@@ -10,7 +10,7 @@ const baseOutputPath = join(__dirname, 'output')
 async function compileAndCheck(inputFile, outputFile) {
   const inputCDS = await read(join(baseInputPath, inputFile))
   const expectedAsyncAPI = JSON.stringify(await read(join(baseOutputPath, outputFile)))
-  const csn = cds.compile.to.csn(inputCDS)
+  const csn = cds.compile.to.csn(inputCDS, { docs: true })
   const generatedAsyncAPI = toAsyncAPI(csn)
   assert.deepStrictEqual(generatedAsyncAPI, JSON.parse(expectedAsyncAPI))
 }
