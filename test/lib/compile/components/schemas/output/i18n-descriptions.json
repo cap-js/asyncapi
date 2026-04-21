@@ -186,7 +186,8 @@
           {
             "$ref": "#/components/messageTraits/CloudEventsContext.v1"
           }
-        ]
+        ],
+        "description": "Event description from i18n"
       }
     },
     "schemas": {
