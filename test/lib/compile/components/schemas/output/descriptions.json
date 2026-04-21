@@ -8,6 +8,27 @@
   },
   "defaultContentType": "application/json",
   "channels": {
+    "com.sap.test.MyService.Foo": {
+      "subscribe": {
+        "message": {
+          "$ref": "#/components/messages/com.sap.test.MyService.Foo"
+        }
+      }
+    },
+    "com.sap.test.MyService.Bar": {
+      "subscribe": {
+        "message": {
+          "$ref": "#/components/messages/com.sap.test.MyService.Bar"
+        }
+      }
+    },
+    "com.sap.test.MyService.Baz": {
+      "subscribe": {
+        "message": {
+          "$ref": "#/components/messages/com.sap.test.MyService.Baz"
+        }
+      }
+    },
     "com.sap.test.MyService.TestEvent": {
       "subscribe": {
         "message": {
@@ -101,6 +122,126 @@
       }
     },
     "messages": {
+      "com.sap.test.MyService.Foo": {
+        "x-sap-event-source": "/{region}/{applicationNamespace}/{instanceId}",
+        "x-sap-event-source-parameters": {
+          "region": {
+            "description": "The regional context of the application.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "applicationNamespace": {
+            "description": "The registered namespace of the application.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "instanceId": {
+            "description": "The instance id (tenant, installation, ...) of the application.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "name": "com.sap.test.MyService.Foo",
+        "headers": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "com.sap.test.MyService.Foo"
+            }
+          }
+        },
+        "payload": {
+          "$ref": "#/components/schemas/com.sap.test.MyService.Foo"
+        },
+        "traits": [
+          {
+            "$ref": "#/components/messageTraits/CloudEventsContext.v1"
+          }
+        ]
+      },
+      "com.sap.test.MyService.Bar": {
+        "x-sap-event-source": "/{region}/{applicationNamespace}/{instanceId}",
+        "x-sap-event-source-parameters": {
+          "region": {
+            "description": "The regional context of the application.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "applicationNamespace": {
+            "description": "The registered namespace of the application.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "instanceId": {
+            "description": "The instance id (tenant, installation, ...) of the application.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "name": "com.sap.test.MyService.Bar",
+        "headers": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "com.sap.test.MyService.Bar"
+            }
+          }
+        },
+        "payload": {
+          "$ref": "#/components/schemas/com.sap.test.MyService.Bar"
+        },
+        "traits": [
+          {
+            "$ref": "#/components/messageTraits/CloudEventsContext.v1"
+          }
+        ]
+      },
+      "com.sap.test.MyService.Baz": {
+        "x-sap-event-source": "/{region}/{applicationNamespace}/{instanceId}",
+        "x-sap-event-source-parameters": {
+          "region": {
+            "description": "The regional context of the application.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "applicationNamespace": {
+            "description": "The registered namespace of the application.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "instanceId": {
+            "description": "The instance id (tenant, installation, ...) of the application.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "name": "com.sap.test.MyService.Baz",
+        "headers": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "com.sap.test.MyService.Baz"
+            }
+          }
+        },
+        "payload": {
+          "$ref": "#/components/schemas/com.sap.test.MyService.Baz"
+        },
+        "traits": [
+          {
+            "$ref": "#/components/messageTraits/CloudEventsContext.v1"
+          }
+        ]
+      },
       "com.sap.test.MyService.TestEvent": {
         "x-sap-event-source": "/{region}/{applicationNamespace}/{instanceId}",
         "x-sap-event-source-parameters": {
@@ -143,6 +284,18 @@
       }
     },
     "schemas": {
+      "com.sap.test.MyService.Foo": {
+        "description": "Event with @Core.Description annotation",
+        "type": "object"
+      },
+      "com.sap.test.MyService.Bar": {
+        "description": "This takes priority",
+        "type": "object"
+      },
+      "com.sap.test.MyService.Baz": {
+        "description": "Doc comment as fallback",
+        "type": "object"
+      },
       "com.sap.test.MyService.TestEvent": {
         "type": "object",
         "properties": {
