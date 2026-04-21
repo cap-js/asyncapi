@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - Support for `@Core.Description` annotation as an alternative to `@description`, aligned with OpenAPI behavior
+- Support for i18n labels inside description and title annotations
 
 ## Version 1.0.3 - 12-03-2025
 
