@@ -10,11 +10,11 @@ const baseOutputPath = join(__dirname, 'output')
 async function compileAndCheck(inputFile, outputFile) {
   const inputPath = join(baseInputPath, inputFile)
   const expectedAsyncAPI = JSON.stringify(await read(join(baseOutputPath, outputFile)))
-  
+
   // Compile from string to preserve doc comments
   const inputCDS = await read(inputPath)
   const csn = cds.compile.to.csn(inputCDS, { docs: true })
-  
+
   const generatedAsyncAPI = toAsyncAPI(csn)
   assert.deepStrictEqual(generatedAsyncAPI, JSON.parse(expectedAsyncAPI))
 }
@@ -22,11 +22,11 @@ async function compileAndCheck(inputFile, outputFile) {
 async function compileAndCheckWithI18n(inputFile, outputFile) {
   const inputPath = join(baseInputPath, inputFile)
   const expectedAsyncAPI = JSON.stringify(await read(join(baseOutputPath, outputFile)))
-  
+
   // Load from file path to get i18n files
   const model = await cds.load(inputPath)
   const csn = cds.compile.to.csn(model, { docs: true })
-  
+
   const generatedAsyncAPI = toAsyncAPI(csn)
   assert.deepStrictEqual(generatedAsyncAPI, JSON.parse(expectedAsyncAPI))
 }
