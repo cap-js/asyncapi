@@ -8,8 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- Support for `@Core.Description` annotation as an alternative to `@description`, aligned with OpenAPI behavior
-- Support for i18n labels inside description and title annotations
+- Support for `@Core.Description` annotation as an alternative to `@description`
+- Automatic resolution of i18n markers (e.g., `{i18n>KEY}`)
 
 ## Version 1.0.3 - 12-03-2025
 
