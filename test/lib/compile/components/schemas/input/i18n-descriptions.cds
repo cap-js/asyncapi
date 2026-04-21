@@ -3,6 +3,7 @@ namespace com.sap.test;
 @AsyncAPI.Title        : 'i18n Test Service'
 @AsyncAPI.SchemaVersion: '1.0.0'
 service MyService {
+
   event TestEvent : {
     @description: '{i18n>FIELD_DESC}'
     fieldWithI18n: String;
