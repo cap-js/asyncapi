@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Support for `@Core.Description` annotation as an alternative to `@description`
 - Automatic resolution of i18n markers (e.g., `{i18n>KEY}`)
 - Event descriptions now appear in `components.messages.<event>.description` in addition to `components.schemas.<event>.description`
+- CloudEvents header examples can now be customized via `cds.env.export.asyncapi.cloudevents_examples` configuration
 
 ## Version 1.0.3 - 12-03-2025
 

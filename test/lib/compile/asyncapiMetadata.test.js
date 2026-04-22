@@ -106,4 +106,22 @@ describe('asyncapi export: presets and annotations', () => {
         assert.ok(!('console' in generatedAsyncAPI))
         assert.ok(!generatedAsyncAPI.console)
     })
+
+    test('CloudEvents header examples can be customized', async () => {
+        const inputCDS = await read(join(baseInputPath, 'valid', 'cloudevents-custom-examples.cds'))
+        cds.env.export.asyncapi = {
+            application_namespace: 'com.example.project',
+            cloudevents_examples: {
+                type: ['com.example.project.IssueCreated.v1', 'com.example.project.IssueUpdated.v1'],
+                source: ['/prod/project-mgmt/instance-001'],
+                subject: ['issue-12345', 'issue-67890'],
+                dataschema: ['https://api.example.com/schemas/IssueCreated/v1.0']
+            }
+        }
+        const csn = cds.compile.to.csn(inputCDS)
+        const expectedAsyncAPI = JSON.stringify(await read(join(baseOutputPath, 'cloudevents-custom-examples.json')))
+        const generatedAsyncAPI = toAsyncAPI(csn)
+        assert.deepStrictEqual(generatedAsyncAPI, JSON.parse(expectedAsyncAPI))
+    })
 })
+

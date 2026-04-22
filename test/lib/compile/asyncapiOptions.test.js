@@ -72,7 +72,7 @@ describe('asyncapi export: options', () => {
     for (const [, metadata] of generatedAsyncAPI) {
       filesFound.add(metadata.file)
     }
-    assert.deepStrictEqual(filesFound, new Set(['com.sap.bookstore.BookStore', 'com.sap.bookstore.AuthorService', 'com.sap.base.Base', 'com.sap.presets.S', 'com.sap.annotations.S']))
+    assert.deepStrictEqual(filesFound, new Set(['com.sap.bookstore.BookStore', 'com.sap.bookstore.AuthorService', 'com.sap.base.Base', 'com.sap.presets.S', 'com.sap.annotations.S', 'com.example.project.ProjectService']))
   })
 
   test('Merged flag throws an error if title and version are not specified', async () => {
