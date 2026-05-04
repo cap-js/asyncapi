@@ -288,15 +288,12 @@
     },
     "schemas": {
       "com.sap.test.MyService.Foo": {
-        "description": "Event with @Core.Description annotation",
         "type": "object"
       },
       "com.sap.test.MyService.Bar": {
-        "description": "This takes priority",
         "type": "object"
       },
       "com.sap.test.MyService.Baz": {
-        "description": "Doc comment as fallback",
         "type": "object"
       },
       "com.sap.test.MyService.TestEvent": {

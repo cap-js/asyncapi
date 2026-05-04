@@ -215,8 +215,7 @@
             "type": "string",
             "description": "Product identifier"
           }
-        },
-        "description": "Event description from i18n"
+        }
       }
     }
   }
