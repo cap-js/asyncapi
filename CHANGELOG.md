@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [Unreleased]
+
+### Added
+
+- Support for `@Core.Description` annotation as an alternative to `@description`
+- Automatic resolution of i18n markers (e.g., `{i18n>KEY}`)
+
+### Changed
+
+- Event descriptions now only appear in `components.messages.<event>.description` (removed from `components.schemas.<event>.description` to avoid duplication)
+
 ## Version 1.0.3 - 12-03-2025
 
 ### Added

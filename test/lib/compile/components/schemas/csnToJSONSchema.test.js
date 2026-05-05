@@ -8,9 +8,25 @@ const baseInputPath = join(__dirname, 'input')
 const baseOutputPath = join(__dirname, 'output')
 
 async function compileAndCheck(inputFile, outputFile) {
-  const inputCDS = await read(join(baseInputPath, inputFile))
+  const inputPath = join(baseInputPath, inputFile)
   const expectedAsyncAPI = JSON.stringify(await read(join(baseOutputPath, outputFile)))
-  const csn = cds.compile.to.csn(inputCDS)
+
+  // Compile from string to preserve doc comments
+  const inputCDS = await read(inputPath)
+  const csn = cds.compile.to.csn(inputCDS, { docs: true })
+
+  const generatedAsyncAPI = toAsyncAPI(csn)
+  assert.deepStrictEqual(generatedAsyncAPI, JSON.parse(expectedAsyncAPI))
+}
+
+async function compileAndCheckWithI18n(inputFile, outputFile) {
+  const inputPath = join(baseInputPath, inputFile)
+  const expectedAsyncAPI = JSON.stringify(await read(join(baseOutputPath, outputFile)))
+
+  // Load from file path to get i18n files
+  const model = await cds.load(inputPath)
+  const csn = cds.compile.to.csn(model, { docs: true })
+
   const generatedAsyncAPI = toAsyncAPI(csn)
   assert.deepStrictEqual(generatedAsyncAPI, JSON.parse(expectedAsyncAPI))
 }
@@ -74,6 +90,21 @@ describe('asyncapi export: to json schema', () => {
 
   test('Test for Unmanaged Composition', async () => {
     await compileAndCheck('unManagedComposition.cds', 'unManagedComposition.json')
+  })
+
+  test('Test for @Core.Description annotation as fallback to @description', async () => {
+    await compileAndCheck('descriptions.cds', 'descriptions.json')
+  })
+
+  test('Test for i18n in Descriptions', async () => {
+    // Save original cds.root and set to input directory so CDS can find i18n files
+    const originalRoot = cds.root
+    try {
+      cds.root = baseInputPath
+      await compileAndCheckWithI18n('i18n-descriptions.cds', 'i18n-descriptions.json')
+    } finally {
+      cds.root = originalRoot
+    }
   })
 
 })
