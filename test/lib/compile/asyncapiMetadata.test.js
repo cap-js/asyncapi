@@ -106,4 +106,12 @@ describe('asyncapi export: presets and annotations', () => {
         assert.ok(!('console' in generatedAsyncAPI))
         assert.ok(!generatedAsyncAPI.console)
     })
+
+    test('ChannelName annotation allows channel names with slashes', async () => {
+        const inputCDS = await read(join(baseInputPath, 'valid', 'channelName.cds'))
+        const csn = cds.compile.to.csn(inputCDS)
+        const expectedAsyncAPI = JSON.stringify(await read(join(baseOutputPath, 'channelName.json')))
+        const generatedAsyncAPI = toAsyncAPI(csn, { service: 'com.sap.channelname.StudyEventsService' })
+        assert.deepStrictEqual(generatedAsyncAPI, JSON.parse(expectedAsyncAPI))
+    })
 })
