@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- Support for `@AsyncAPI.ChannelName` annotation to allow custom channel names independent of message/schema references (enables channel names with special characters like slashes)
 - Support for `@Core.Description` annotation as an alternative to `@description`
 - Automatic resolution of i18n markers (e.g., `{i18n>KEY}`)
 

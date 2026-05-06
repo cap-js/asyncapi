@@ -106,4 +106,26 @@ describe('asyncapi export: presets and annotations', () => {
         assert.ok(!('console' in generatedAsyncAPI))
         assert.ok(!generatedAsyncAPI.console)
     })
+
+    test('ChannelName annotation allows channel names with slashes', async () => {
+        const inputCDS = await read(join(baseInputPath, 'valid', 'channelName.cds'))
+        const csn = cds.compile.to.csn(inputCDS)
+        const expectedAsyncAPI = JSON.stringify(await read(join(baseOutputPath, 'channelName.json')))
+        const generatedAsyncAPI = toAsyncAPI(csn, { service: 'com.sap.channelname.StudyEventsService' })
+
+        // Verify channel name with slashes is used
+        assert.ok(generatedAsyncAPI.channels['default/sap.ctsm.study.prod/-/study/material'])
+
+        // Verify message reference does not contain slashes
+        assert.strictEqual(
+            generatedAsyncAPI.channels['default/sap.ctsm.study.prod/-/study/material'].subscribe.message.$ref,
+            '#/components/messages/study_material'
+        )
+
+        // Verify message key is safe for JSON pointers
+        assert.ok(generatedAsyncAPI.components.messages['study_material'])
+
+        // Full comparison
+        assert.deepStrictEqual(generatedAsyncAPI, JSON.parse(expectedAsyncAPI))
+    })
 })
