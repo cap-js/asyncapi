@@ -114,12 +114,4 @@ describe('asyncapi export: presets and annotations', () => {
         const generatedAsyncAPI = toAsyncAPI(csn, { service: 'com.sap.channelname.StudyEventsService' })
         assert.deepStrictEqual(generatedAsyncAPI, JSON.parse(expectedAsyncAPI))
     })
-
-    test('Reused types maintain individual descriptions', async () => {
-        const inputCDS = await read(join(baseInputPath, 'valid', 'reusedTypeDescriptions.cds'))
-        const csn = cds.compile.to.csn(inputCDS)
-        const expectedAsyncAPI = JSON.stringify(await read(join(baseOutputPath, 'reusedTypeDescriptions.json')))
-        const generatedAsyncAPI = toAsyncAPI(csn)
-        assert.deepStrictEqual(generatedAsyncAPI, JSON.parse(expectedAsyncAPI))
-    })
 })

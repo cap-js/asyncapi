@@ -107,4 +107,8 @@ describe('asyncapi export: to json schema', () => {
     }
   })
 
+  test('Test for Reused Types with Individual Descriptions', async () => {
+    await compileAndCheck('reusedTypeDescriptions.cds', 'reusedTypeDescriptions.json')
+  })
+
 })
