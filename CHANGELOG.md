@@ -19,7 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 - Fixed description collision bug where reused types (e.g., multiple properties with the same type but different `@description` annotations) would all end up with the same description from the last processed property. Now each property correctly maintains its individual description.
-
+   
 ## Version 1.0.3 - 12-03-2025
 
 ### Added
