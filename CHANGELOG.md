@@ -7,6 +7,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ## [Unreleased]
 
 ### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+## [1.1.0] - 2026-06-02
+
+### Added
 
 - Support for `@AsyncAPI.ChannelName` annotation to allow custom channel names independent of message/schema references (enables channel names with special characters like slashes)
 - Support for `@Core.Description` annotation as an alternative to `@description`
