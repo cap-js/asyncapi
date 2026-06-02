@@ -1,6 +1,14 @@
+# Delegates to the shared release workflow in cap-js/.github
+# For more information see: https://github.com/cap-js/.github
+
+
+
 name: Release
 
 on:
+  push:
+    branches: main
+
   workflow_dispatch:
     inputs:
       dry-run:
