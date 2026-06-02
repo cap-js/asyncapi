@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - Event descriptions now only appear in `components.messages.<event>.description` (removed from `components.schemas.<event>.description` to avoid duplication)
+- Enum values now take precedence over they respective keys in the output
 
 ### Fixed
 

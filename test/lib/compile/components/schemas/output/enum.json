@@ -158,8 +158,8 @@
             "type": "string",
             "maxLength": 10,
             "enum": [
-              "one",
-              "two"
+              "ValueOne",
+              "ValueTwo"
             ]
           }
         }
