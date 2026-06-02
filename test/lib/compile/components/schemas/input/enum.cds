@@ -1,6 +1,6 @@
 namespace com.sap.test;
 
-type EnumType: String(10) enum { one = 'One'; two = 'Two'; };
+type EnumType: String(10) enum { one = 'ValueOne'; two = 'ValueTwo'; };
 
 @AsyncAPI.Title        : 'My Events'
 @AsyncAPI.SchemaVersion: '1.0.0'
