@@ -16,6 +16,7 @@ module.exports = [
         module: 'readonly',
         require: 'readonly',
         exports: 'writable',
+        structuredClone: 'readonly',
       },
     },
     rules: {
