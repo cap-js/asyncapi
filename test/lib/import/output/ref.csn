@@ -1,0 +1,181 @@
+{
+ "meta": {
+  "creator": "cds-dk 8.4.0"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "com.sap.Base": {
+   "kind": "service",
+   "@cds.external": "true",
+   "@AsyncAPI.Extensions": {
+    "sap-catalog-spec-version": "1.2",
+    "sap-application-namespace": "com.sap.test"
+   },
+   "@AsyncAPI.StateInfo": {
+    "state": "DECOMMISSIONED1",
+    "deprecationDate": "2022-08-31",
+    "decomissionedDate": "2024-08-31",
+    "link": "http://some.release.notes.sap.com"
+   },
+   "@AsyncAPI.ShortText": "Service Base",
+   "@AsyncAPI.Title": "Base Events",
+   "@AsyncAPI.SchemaVersion": "1.0.0",
+   "@AsyncAPI.Description": "Events emitted by the SampleService."
+  },
+  "com.sap.Base.MyName.v1": {
+   "kind": "event",
+   "@cds.external": "true",
+   "@AsyncAPI.EventSpecVersion": "1.0.0",
+   "@AsyncAPI.EventSource": "/{region}/sap.app/{instanceId}",
+   "@AsyncAPI.EventCharacteristics": {
+    "instanceIdentification": "key-subject",
+    "sequencing": false
+   },
+   "@AsyncAPI.EventSourceParams": {
+    "region": {
+     "description": "The regional context of the application.",
+     "schema": {
+      "type": "string",
+      "enum": [
+       "eu",
+       "us"
+      ]
+     }
+    },
+    "instanceId": {
+     "description": "The instance id (tenant, installation, ...) of the application.",
+     "schema": {
+      "type": "string"
+     }
+    }
+   },
+   "@AsyncAPI.EventStateInfo": {
+    "state": "DECOMMISSIONED",
+    "deprecationDate": "2020-01-01",
+    "decomissionedDate": "2021-01-01",
+    "link": "http://some.release.notes.sap.com"
+   },
+   "@AsyncAPI.EventSchemaVersion": "1.0.0",
+   "@topic": "com.sap.Base.MyName.v1",
+   "elements": {
+    "id": {
+     "@mandatory": true,
+     "type": "cds.UUID"
+    },
+    "refComponent": {
+     "type": {
+      "ref": [
+       "com.sap.Base.YourName.v1",
+       "id"
+      ]
+     }
+    }
+   }
+  },
+  "com.sap.Base.YourName.v1": {
+   "kind": "event",
+   "@cds.external": "true",
+   "@AsyncAPI.EventSpecVersion": "1.0.0",
+   "@AsyncAPI.EventSource": "/{region}/sap.app/{instanceId}",
+   "@AsyncAPI.EventCharacteristics": {
+    "instanceIdentification": "key-subject",
+    "sequencing": false
+   },
+   "@AsyncAPI.EventSourceParams": {
+    "region": {
+     "description": "The regional context of the application.",
+     "schema": {
+      "type": "string",
+      "enum": [
+       "eu",
+       "us"
+      ]
+     }
+    },
+    "instanceId": {
+     "description": "The instance id (tenant, installation, ...) of the application.",
+     "schema": {
+      "type": "string"
+     }
+    }
+   },
+   "@AsyncAPI.EventStateInfo": {
+    "state": "DECOMMISSIONED",
+    "deprecationDate": "2020-01-01",
+    "decomissionedDate": "2021-01-01",
+    "link": "http://some.release.notes.sap.com"
+   },
+   "@AsyncAPI.EventSchemaVersion": "1.0.0",
+   "@topic": "com.sap.Base.YourName.v1",
+   "elements": {
+    "id": {
+     "type": "cds.UUID"
+    },
+    "refComponent1": {
+     "type": {
+      "ref": [
+       "com.sap.Base.MyName.v1",
+       "id"
+      ]
+     }
+    },
+    "refComponent2": {
+     "type": {
+      "ref": [
+       "com.sap.Base.YourName.v1",
+       "refComponent3"
+      ]
+     }
+    },
+    "refComponent3": {
+     "type": "com.sap.Base.YourName.v1.RefComponent3"
+    },
+    "decimalDirect": {
+     "type": "cds.Decimal"
+    },
+    "refComponent4": {
+     "type": {
+      "ref": [
+       "com.sap.Base.MyName.v1",
+       "id"
+      ]
+     }
+    },
+    "refCompnent5": {
+     "type": "com.sap.Base.YourName.v1.RefCompnent5"
+    }
+   }
+  },
+  "com.sap.Base.YourName.v1.RefComponent3": {
+   "kind": "type",
+   "@cds.external": "true",
+   "items": {
+    "elements": {
+     "a": {
+      "type": "cds.LargeString"
+     },
+     "b": {
+      "type": {
+       "ref": [
+        "com.sap.Base.YourName.v1",
+        "decimalDirect"
+       ]
+      }
+     }
+    }
+   }
+  },
+  "com.sap.Base.YourName.v1.RefCompnent5": {
+   "kind": "type",
+   "@cds.external": "true",
+   "items": {
+    "type": {
+     "ref": [
+      "com.sap.Base.MyName.v1",
+      "id"
+     ]
+    }
+   }
+  }
+ }
+}

@@ -16,9 +16,15 @@
   "author": "SAP SE (https://www.sap.com)",
   "license": "Apache-2.0",
   "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json",
+    "./cds-plugin": "./cds-plugin.js"
+  },
   "files": [
     "lib/",
     "index.js",
+    "cds-plugin.js",
     "LICENSE"
   ],
   "scripts": {
@@ -29,6 +35,89 @@
     "@sap/cds": ">=7.6"
   },
   "devDependencies": {
+    "@sap/cds-dk": "^10",
     "eslint": "^10.0.0"
+  },
+  "cds": {
+    "schema": {
+      "export": {
+        "asyncapi": {
+          "type": "object",
+          "description": "AsyncAPI settings for cds compile",
+          "additionalProperties": false,
+          "properties": {
+            "application_namespace": {
+              "type": "string",
+              "description": "The registered namespace of the application"
+            },
+            "merged": {
+              "type": "object",
+              "description": "properties that needs to be there when merged option is used",
+              "additionalProperties": false,
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "Title to be used for merged doc"
+                },
+                "version": {
+                  "type": "string",
+                  "description": "Version to be used for merged doc"
+                },
+                "short_text": {
+                  "type": "string",
+                  "description": "Short description of the AsyncAPIs"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Description to be used for the merged doc"
+                }
+              }
+            },
+            "event_spec_version": {
+              "type": "string",
+              "description": "Mentions the version of AsyncAPI spec"
+            },
+            "event_source": {
+              "type": "string",
+              "description": "Event source information",
+              "default": "{region}/{applicationNamespace}/{instanceId}"
+            },
+            "event_source_params": {
+              "type": "object",
+              "description": "Parameters related to the source of event",
+              "default": {
+                "region": "the region",
+                "applicationNamespace": "the namespace",
+                "instanceId": "the instance id"
+              },
+              "additionalProperties": false,
+              "properties": {
+                "region": {
+                  "type": "string",
+                  "description": "The regional context of the application"
+                },
+                "applicationNamespace": {
+                  "type": "string",
+                  "description": "The registered namespace of the application"
+                },
+                "instanceId": {
+                  "type": "string",
+                  "description": "The instance id (tenant, installation, ...) of the application."
+                }
+              }
+            },
+            "event_characteristics": {
+              "type": "object",
+              "description": "The characteristics defined for events",
+              "additionalProperties": true
+            }
+          }
+        }
+      },
+      "importFrom": {
+        "const": "asyncapi",
+        "description": "AsyncAPI specification"
+      }
+    }
   }
 }

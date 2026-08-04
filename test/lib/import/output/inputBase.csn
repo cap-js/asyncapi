@@ -1,0 +1,133 @@
+{
+ "meta": {
+  "creator": "cds-dk 8.4.0"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "com.sap.Base": {
+   "kind": "service",
+   "@cds.external": "true",
+   "@AsyncAPI.Extensions": {
+    "sap-catalog-spec-version": "1.2",
+    "sap-application-namespace": "com.sap.test"
+   },
+   "@AsyncAPI.StateInfo": {
+    "state": "DECOMMISSIONED1",
+    "deprecationDate": "2022-08-31",
+    "decomissionedDate": "2024-08-31",
+    "link": "http://some.release.notes.sap.com"
+   },
+   "@AsyncAPI.ShortText": "Service Base",
+   "@AsyncAPI.Title": "Base Events",
+   "@AsyncAPI.SchemaVersion": "1.0.0",
+   "@AsyncAPI.Description": "Events emitted by the SampleService."
+  },
+  "com.sap.Base.MyName.v1": {
+   "kind": "event",
+   "@cds.external": "true",
+   "@AsyncAPI.EventSpecVersion": "1.0.0",
+   "@AsyncAPI.EventSource": "/{region}/sap.app/{instanceId}",
+   "@AsyncAPI.EventCharacteristics": {
+    "instanceIdentification": "key-subject",
+    "sequencing": false
+   },
+   "@AsyncAPI.EventSourceParams": {
+    "region": {
+     "description": "The regional context of the application.",
+     "schema": {
+      "type": "string",
+      "enum": [
+       "eu",
+       "us"
+      ]
+     }
+    },
+    "instanceId": {
+     "description": "The instance id (tenant, installation, ...) of the application.",
+     "schema": {
+      "type": "string"
+     }
+    }
+   },
+   "@AsyncAPI.EventStateInfo": {
+    "state": "DECOMMISSIONED",
+    "deprecationDate": "2020-01-01",
+    "decomissionedDate": "2021-01-01",
+    "link": "http://some.release.notes.sap.com"
+   },
+   "@AsyncAPI.EventSchemaVersion": "1.0.0",
+   "@topic": "com.sap.Base.MyName.v1",
+   "elements": {
+    "id": {
+     "@mandatory": true,
+     "type": "cds.UUID"
+    },
+    "boolean": {
+     "type": "cds.Boolean"
+    },
+    "integerBig": {
+     "type": "cds.Integer64"
+    },
+    "decimal": {
+     "type": "cds.Decimal",
+     "precision": 2,
+     "scale": 1
+    },
+    "decimalScale": {
+     "type": "cds.Decimal",
+     "precision": 2
+    },
+    "decimalDirect": {
+     "type": "cds.Decimal"
+    },
+    "double": {
+     "type": "cds.Double"
+    },
+    "date": {
+     "type": "cds.Date"
+    },
+    "time": {
+     "type": "cds.Time"
+    },
+    "datetime": {
+     "type": "cds.Timestamp"
+    },
+    "string": {
+     "type": "cds.LargeString"
+    },
+    "attribute": {
+     "type": "cds.Integer"
+    },
+    "defaulted": {
+     "type": "cds.LargeString",
+     "default": {
+      "val": "value"
+     }
+    },
+    "lstringval": {
+     "type": "com.sap.Base.MyName.v1.Lstringval"
+    },
+    "start": {
+     "type": "cds.Date"
+    },
+    "end": {
+     "type": "cds.Date"
+    }
+   }
+  },
+  "com.sap.Base.MyName.v1.Lstringval": {
+   "kind": "type",
+   "@cds.external": "true",
+   "items": {
+    "elements": {
+     "lang": {
+      "type": "cds.LargeString"
+     },
+     "content": {
+      "type": "cds.LargeString"
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,98 @@
+{
+ "meta": {
+  "creator": "cds-dk 8.4.0"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "com.sap.bookstore.BookStore": {
+   "kind": "service",
+   "@cds.external": "true",
+   "@AsyncAPI.Extensions": {
+    "sap-catalog-spec-version": "1.2",
+    "sap-application-namespace": "com.sap.merged"
+   },
+   "@AsyncAPI.Title": "My Title",
+   "@AsyncAPI.SchemaVersion": "1.0.0"
+  },
+  "com.sap.bookstore.BookStore.Created": {
+   "kind": "event",
+   "@cds.external": "true",
+   "@AsyncAPI.EventSource": "/{region}/{applicationNamespace}/{instanceId}",
+   "@AsyncAPI.EventSourceParams": {
+    "region": {
+     "description": "The regional context of the application.",
+     "schema": {
+      "type": "string"
+     }
+    },
+    "applicationNamespace": {
+     "description": "The registered namespace of the application.",
+     "schema": {
+      "type": "string"
+     }
+    },
+    "instanceId": {
+     "description": "The instance id (tenant, installation, ...) of the application.",
+     "schema": {
+      "type": "string"
+     }
+    }
+   },
+   "@topic": "com.sap.bookstore.BookStore.Created",
+   "elements": {
+    "id": {
+     "@mandatory": true,
+     "type": "cds.UUID"
+    },
+    "name": {
+     "type": "cds.LargeString"
+    }
+   }
+  },
+  "com.sap.bookstore.AuthorService": {
+   "kind": "service",
+   "@cds.external": "true",
+   "@AsyncAPI.Extensions": {
+    "sap-catalog-spec-version": "1.2",
+    "sap-application-namespace": "com.sap.merged"
+   },
+   "@AsyncAPI.Title": "My Title",
+   "@AsyncAPI.SchemaVersion": "1.0.0"
+  },
+  "com.sap.bookstore.AuthorService.Created": {
+   "kind": "event",
+   "@cds.external": "true",
+   "@AsyncAPI.EventSource": "/{region}/{applicationNamespace}/{instanceId}",
+   "@AsyncAPI.EventSourceParams": {
+    "region": {
+     "description": "The regional context of the application.",
+     "schema": {
+      "type": "string"
+     }
+    },
+    "applicationNamespace": {
+     "description": "The registered namespace of the application.",
+     "schema": {
+      "type": "string"
+     }
+    },
+    "instanceId": {
+     "description": "The instance id (tenant, installation, ...) of the application.",
+     "schema": {
+      "type": "string"
+     }
+    }
+   },
+   "@topic": "com.sap.bookstore.AuthorService.Created",
+   "elements": {
+    "id": {
+     "@mandatory": true,
+     "type": "cds.UUID"
+    },
+    "name": {
+     "type": "cds.LargeString"
+    }
+   }
+  }
+ }
+}
