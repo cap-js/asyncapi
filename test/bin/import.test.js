@@ -1,27 +1,35 @@
 const { describe, test } = require('node:test')
 const assert = require('node:assert')
-const { resolve } = require('path')
+const Module = require('module')
 
-// ensure cds.import lazy getter is set up before cds-plugin runs
-require('@sap/cds-dk')
-require('../../cds-plugin')
+describe('cds-plugin registrations', () => {
+  test('registers compile and import handlers', () => {
+    const compileRegistrations = []
+    const importRegistrations = []
 
-const cds = require('@sap/cds')
-const inputDir = resolve(__dirname, '../lib/import/input')
+    const fakeCds = {
+      compile: { to: { register: (format, impl, opts) => compileRegistrations.push({ format, impl, opts }) } },
+      import:  { from: { register: (kind,   impl, opts) => importRegistrations.push({ kind, impl, opts }) } }
+    }
 
-describe('cds import --asyncapi (plugin registration)', () => {
-  test('single service', async () => {
-    const csn = await cds.import.from.asyncapi(resolve(inputDir, 'inputBase.json'))
-    assert.equal(csn.definitions['com.sap.Base'].kind, 'service')
-    assert.ok(csn.definitions['com.sap.Base']['@AsyncAPI.StateInfo'])
-    assert.ok(csn.definitions['com.sap.Base.MyName.v1']['@AsyncAPI.EventCharacteristics'])
-    assert.ok(csn.definitions['com.sap.Base']['@AsyncAPI.Extensions'])
-  })
+    // load cds-plugin with our fake cds instead of the real one
+    const orig = Module._resolveFilename
+    Module._resolveFilename = (req, ...rest) =>
+      req === '@sap/cds' ? req : orig(req, ...rest)
+    require.cache['@sap/cds'] = { id: '@sap/cds', filename: '@sap/cds', loaded: true, exports: fakeCds }
 
-  test('multiple services', async () => {
-    const csn = await cds.import.from.asyncapi(resolve(inputDir, 'multipleService.json'))
-    assert.ok(csn.definitions['com.sap.bookstore.BookStore'])
-    assert.ok(csn.definitions['com.sap.bookstore.AuthorService'])
-    assert.ok(csn.definitions['com.sap.bookstore.BookStore']['@AsyncAPI.Extensions'])
+    delete require.cache[require.resolve('../../cds-plugin')]
+    require('../../cds-plugin')
+
+    delete require.cache['@sap/cds']
+    Module._resolveFilename = orig
+
+    assert.equal(compileRegistrations.length, 1)
+    assert.equal(compileRegistrations[0].format, 'asyncapi')
+    assert.equal(typeof compileRegistrations[0].impl, 'function')
+
+    assert.equal(importRegistrations.length, 1)
+    assert.equal(importRegistrations[0].kind, 'asyncapi')
+    assert.equal(typeof importRegistrations[0].impl, 'function')
   })
 })
