@@ -1,0 +1,51 @@
+{
+ "meta": {
+  "creator": "cds-dk 0.0.0"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "com.sap.Svc": {
+   "kind": "service",
+   "@cds.external": "true",
+   "@AsyncAPI.Title": "Schema Ref Test",
+   "@AsyncAPI.SchemaVersion": "1.0.0"
+  },
+  "com.sap.Svc.EventOne.v1": {
+   "kind": "event",
+   "@cds.external": "true",
+   "@topic": "com.sap.Svc.EventOne.v1",
+   "elements": {
+    "data": {
+     "type": {
+      "ref": [
+       "EventOneData",
+       "EventOneData"
+      ]
+     }
+    }
+   }
+  },
+  "com.sap.Svc.EventTwo.v1": {
+   "kind": "event",
+   "@cds.external": "true",
+   "@topic": "com.sap.Svc.EventTwo.v1",
+   "elements": {
+    "amount": {
+     "type": "cds.Decimal"
+    },
+    "nested": {
+     "type": "com.sap.Svc.EventTwo.v1.Nested"
+    }
+   }
+  },
+  "com.sap.Svc.EventTwo.v1.Nested": {
+   "kind": "type",
+   "@cds.external": "true",
+   "elements": {
+    "code": {
+     "type": "cds.LargeString"
+    }
+   }
+  }
+ }
+}

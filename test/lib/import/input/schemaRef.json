@@ -1,0 +1,103 @@
+{
+  "asyncapi": "2.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Schema Ref Test"
+  },
+  "defaultContentType": "application/json",
+  "channels": {
+    "com.sap.Svc.EventOne.v1": {
+      "subscribe": { "message": { "$ref": "#/components/messages/com.sap.Svc.EventOne.v1" } }
+    },
+    "com.sap.Svc.EventTwo.v1": {
+      "subscribe": { "message": { "$ref": "#/components/messages/com.sap.Svc.EventTwo.v1" } }
+    }
+  },
+  "components": {
+    "messages": {
+      "com.sap.Svc.EventOne.v1": {
+        "name": "com.sap.Svc.EventOne.v1",
+        "payload": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "$ref": "#/components/schemas/EventOneData"
+            }
+          }
+        }
+      },
+      "com.sap.Svc.EventTwo.v1": {
+        "name": "com.sap.Svc.EventTwo.v1",
+        "payload": {
+          "$ref": "#/components/schemas/com.sap.Svc.EventTwo.v1"
+        }
+      }
+    },
+    "schemas": {
+      "EventOneData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EventHeader"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "propRef": {
+                "$ref": "#/components/schemas/com.sap.Svc.EventTwo.v1/properties/amount"
+              },
+              "deepPropRef": {
+                "$ref": "#/components/schemas/com.sap.Svc.EventTwo.v1/properties/nested/properties/code"
+              },
+              "emptyObj": {
+                "type": "object"
+              },
+              "emptyArr": {
+                "type": "array",
+                "items": {}
+              },
+              "noProps": {
+                "$ref": "#/components/schemas/NoProps"
+              }
+            }
+          }
+        ]
+      },
+      "com.sap.Svc.EventTwo.v1": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "nested": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "EventHeader": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        }
+      },
+      "NoProps": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    }
+  }
+}
