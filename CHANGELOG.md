@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ## [Unreleased]
 
 ### Added
+- `cds-plugin.js` integrates with `@sap/cds-dk` to provide `cds compile -2 asyncapi` and `cds import --asyncapi` when the package is declared as a project dependency.
+
 ### Changed
 ### Deprecated
 ### Removed
