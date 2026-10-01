@@ -10,3 +10,17 @@ if (cds.import?.from) cds.import.from.asyncapi = async function (filepath, optio
   options.inputFileKind = 'odata'
   return csn
 }
+
+cds.on('served', ()=> {
+  console.log(42)
+})
+
+if (cds.schema.default4) {
+  const old = cds.schema.default4
+  cds.schema.default4 = async function (...args) {
+    const schema = await old(...args)
+    schema.YYY = { x : 42}
+    return schema
+  }
+}
+

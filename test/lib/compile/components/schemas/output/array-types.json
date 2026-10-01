@@ -147,31 +147,46 @@
         "type": "object",
         "properties": {
           "manyStructure": {
-            "type": "array",
+            "type": [
+              "array",
+              "null"
+            ],
             "items": {
               "type": "object",
               "properties": {
                 "attribute": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "maxLength": 40
                 }
               }
             }
           },
           "manyAnonymous": {
-            "type": "array",
+            "type": [
+              "array",
+              "null"
+            ],
             "items": {
               "type": "object",
               "properties": {
                 "attribute": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "maxLength": 40
                 }
               }
             }
           },
           "manyString": {
-            "type": "array",
+            "type": [
+              "array",
+              "null"
+            ],
             "items": {
               "type": "string",
               "maxLength": 40

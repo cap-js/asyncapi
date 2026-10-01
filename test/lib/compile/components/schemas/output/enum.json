@@ -147,7 +147,10 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 10,
             "enum": [
               "one",
@@ -155,7 +158,10 @@
             ]
           },
           "typed": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 10,
             "enum": [
               "ValueOne",

@@ -195,15 +195,24 @@
         "type": "object",
         "properties": {
           "fieldWithI18n": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Field description from i18n"
           },
           "fieldWithCoreI18n": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Core field description from i18n"
           },
           "fieldWithPlainText": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Plain text description"
           }
         }
@@ -212,7 +221,10 @@
         "type": "object",
         "properties": {
           "productId": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Product identifier"
           }
         }

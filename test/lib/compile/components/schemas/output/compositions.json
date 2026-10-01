@@ -150,7 +150,10 @@
             "type": "string"
           },
           "managedOfOneEntity": {
-            "type": "object",
+            "type": [
+              "object",
+              "null"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -161,10 +164,16 @@
             ]
           },
           "managedOfOneAspect": {
-            "type": "object",
+            "type": [
+              "object",
+              "null"
+            ],
             "properties": {
               "keyless": {
-                "type": "string"
+                "type": [
+                  "string",
+                  "null"
+                ]
               }
             }
           }

@@ -147,7 +147,10 @@
         "type": "object",
         "properties": {
           "assoc": {
-            "type": "object",
+            "type": [
+              "object",
+              "null"
+            ],
             "properties": {
               "id": {
                 "type": "string",
@@ -162,7 +165,10 @@
             ]
           },
           "assoc_key": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           }
         }
       }

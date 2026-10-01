@@ -157,7 +157,10 @@
             ]
           },
           "boolean": {
-            "type": "boolean"
+            "type": [
+              "boolean",
+              "null"
+            ]
           }
         },
         "required": [
