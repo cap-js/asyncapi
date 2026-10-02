@@ -17,6 +17,20 @@ const multipleService_csn  = out('srv/external/multipleService.csn')
 const multipleService_cds  = out('srv/external/multipleService.cds')
 
 describe('AsyncAPI CLI import', () => {
+  before(() => {
+    // cds-dk >= 10.1 resolves @cap-js/asyncapi from its own node_modules, which may be a
+    // stale bundled copy. Override the registered asyncapi handler to use our local implementation.
+    const cdsImport = require('@sap/cds-dk/lib/import/importapi')
+    const { asyncapi2csn } = require('../../../lib/import')
+    const cds = require('@sap/cds')
+    const { read } = cds.utils
+    cdsImport.from.asyncapi = async function (filepath, options = {}) {
+      const src = await read(filepath, 'utf-8')
+      options.inputFileKind = 'odata'
+      return asyncapi2csn(src)
+    }
+  })
+
   beforeEach(async () => {
     if (isdir(project)) await rimraf(project)
     await mkdirp(project)
@@ -32,7 +46,7 @@ describe('AsyncAPI CLI import', () => {
   })
 
   test('import asyncapi - single service', async () => {
-    await _import([inputBase_json])
+    await _import([inputBase_json], { asyncapi: true })
     assert.ok(isfile(inputBase_csn))
     assert.ok(isfile(inputBase_json))
     assert.ok(!isfile(inputBase_cds))
@@ -43,7 +57,7 @@ describe('AsyncAPI CLI import', () => {
   })
 
   test('import asyncapi - single service --as cds', async () => {
-    await _import([inputBase_json], { as: 'cds' })
+    await _import([inputBase_json], { asyncapi: true, as: 'cds' })
     assert.ok(!isfile(inputBase_csn))
     assert.ok(isfile(inputBase_json))
     assert.ok(isfile(inputBase_cds))
@@ -52,7 +66,7 @@ describe('AsyncAPI CLI import', () => {
   })
 
   test('import asyncapi - multiple services', async () => {
-    await _import([multipleService_json])
+    await _import([multipleService_json], { asyncapi: true })
     assert.ok(isfile(multipleService_csn))
     assert.ok(isfile(multipleService_json))
     assert.ok(!isfile(multipleService_cds))
@@ -63,7 +77,7 @@ describe('AsyncAPI CLI import', () => {
   })
 
   test('import asyncapi - multiple services --as cds', async () => {
-    await _import([multipleService_json], { as: 'cds' })
+    await _import([multipleService_json], { asyncapi: true, as: 'cds' })
     assert.ok(!isfile(multipleService_csn))
     assert.ok(isfile(multipleService_json))
     assert.ok(isfile(multipleService_cds))
