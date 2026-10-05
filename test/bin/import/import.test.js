@@ -17,6 +17,11 @@ const multipleService_csn  = out('srv/external/multipleService.csn')
 const multipleService_cds  = out('srv/external/multipleService.cds')
 
 describe('AsyncAPI CLI import', () => {
+  before(() => {
+    require('@sap/cds-dk') // triggers cds.import lazy getter so cds.import.from is populated
+    require('../../../cds-plugin')
+  })
+
   beforeEach(async () => {
     if (isdir(project)) await rimraf(project)
     await mkdirp(project)
