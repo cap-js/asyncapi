@@ -147,19 +147,27 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 10,
             "enum": [
               "one",
-              "two"
+              "two",
+              null
             ]
           },
           "typed": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 10,
             "enum": [
               "ValueOne",
-              "ValueTwo"
+              "ValueTwo",
+              null
             ]
           }
         }

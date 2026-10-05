@@ -150,41 +150,74 @@
             "type": "string"
           },
           "referencedString": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "referencedStringTwo": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "deepReferencedString": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 50
           },
           "referencedAnonymousString": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 50
           },
           "structured": {
-            "type": "object",
+            "type": [
+              "object",
+              "null"
+            ],
             "properties": {
               "string": {
-                "type": "string"
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
               "referencedString": {
-                "type": "string",
+                "type": [
+                  "string",
+                  "null"
+                ],
                 "maxLength": 50
               },
               "reuseString": {
-                "type": "string",
+                "type": [
+                  "string",
+                  "null"
+                ],
                 "maxLength": 50
               },
               "anonymous": {
-                "type": "object",
+                "type": [
+                  "object",
+                  "null"
+                ],
                 "properties": {
                   "anonymousString": {
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "anonymousReuseString": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "maxLength": 50
                   }
                 }

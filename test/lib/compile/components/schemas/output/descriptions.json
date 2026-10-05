@@ -300,23 +300,38 @@
         "type": "object",
         "properties": {
           "fieldWithDescription": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Field with standard description annotation"
           },
           "fieldWithCoreDescription": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Field with Core.Description annotation"
           },
           "fieldWithBoth": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "This takes priority"
           },
           "fieldWithDocComment": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Doc comment as fallback"
           },
           "fieldWithoutDescription": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           }
         }
       }

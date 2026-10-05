@@ -147,7 +147,10 @@
         "type": "object",
         "properties": {
           "displayId": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 40
           }
         }

@@ -248,7 +248,10 @@
             ]
           },
           "likelihood": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 10,
             "description": "Likelihood of the change request"
           }
@@ -268,7 +271,10 @@
             ]
           },
           "likelihood": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 10,
             "description": "Likelihood of the risk"
           }
@@ -288,7 +294,10 @@
             ]
           },
           "likelihood": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 10,
             "description": "Impact of exploiting the opportunity"
           }

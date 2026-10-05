@@ -161,10 +161,16 @@
             "type": "string"
           },
           "nullable": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "arrayed": {
-            "type": "array",
+            "type": [
+              "array",
+              "null"
+            ],
             "items": {
               "type": "string"
             }
@@ -173,7 +179,8 @@
         "required": [
           "id",
           "displayId",
-          "dummyId"
+          "dummyId",
+          "nonNullable"
         ]
       }
     }
