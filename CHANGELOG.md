@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Removed
 ### Fixed
 - Optional CDS elements (no `key`, `not null`, `@mandatory`, or `@Common.FieldControl: #Mandatory`) are now exported as nullable JSON Schema types (e.g. `"type": ["string", "null"]`). Elements declared `not null` are also added to the `required` array.
+- Export→import roundtrip now works for CDS models without a multi-segment lowercase namespace. The exporter embeds `x-sap-cds-service-name` on each message object; the importer uses it to reconstruct the service name without parsing the message name string.
 
 ## [1.1.0] - 2026-06-02
 
