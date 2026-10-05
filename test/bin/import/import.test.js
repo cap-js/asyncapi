@@ -17,18 +17,6 @@ const multipleService_csn  = out('srv/external/multipleService.csn')
 const multipleService_cds  = out('srv/external/multipleService.cds')
 
 describe('AsyncAPI CLI import', () => {
-  before(() => {
-    // cds-dk >= 10.1 resolves @cap-js/asyncapi from its own node_modules, which may be a
-    // stale bundled copy. Override the registered asyncapi handler to use our local implementation.
-    const cdsImport = require('@sap/cds-dk/lib/import/importapi')
-    const { asyncapi2csn } = require('../../../lib/import')
-    cdsImport.from.asyncapi = async function (filepath, options = {}) {
-      const src = await read(filepath, 'utf-8')
-      options.inputFileKind = 'odata'
-      return asyncapi2csn(src)
-    }
-  })
-
   beforeEach(async () => {
     if (isdir(project)) await rimraf(project)
     await mkdirp(project)
