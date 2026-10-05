@@ -154,7 +154,8 @@
             "maxLength": 10,
             "enum": [
               "one",
-              "two"
+              "two",
+              null
             ]
           },
           "typed": {
@@ -165,7 +166,8 @@
             "maxLength": 10,
             "enum": [
               "ValueOne",
-              "ValueTwo"
+              "ValueTwo",
+              null
             ]
           }
         }
