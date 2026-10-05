@@ -1,0 +1,55 @@
+{
+  "asyncapi": "2.0.0",
+  "x-sap-catalog-spec-version": "1.2",
+  "x-sap-application-namespace": "customer.my-app",
+  "info": {
+    "version": "1.0.0",
+    "title": "CatalogService"
+  },
+  "defaultContentType": "application/json",
+  "channels": {
+    "CatalogService.SomeEvent": {
+      "subscribe": {
+        "message": {
+          "$ref": "#/components/messages/CatalogService.SomeEvent"
+        }
+      }
+    }
+  },
+  "components": {
+    "messageTraits": {},
+    "messages": {
+      "CatalogService.SomeEvent": {
+        "name": "CatalogService.SomeEvent",
+        "x-sap-event-source": "/{region}/{applicationNamespace}/{instanceId}",
+        "x-sap-event-source-parameters": {
+          "region": {
+            "description": "The regional context of the application.",
+            "schema": { "type": "string" }
+          },
+          "applicationNamespace": {
+            "description": "The registered namespace of the application.",
+            "schema": { "type": "string" }
+          },
+          "instanceId": {
+            "description": "The instance id (tenant, installation, ...) of the application.",
+            "schema": { "type": "string" }
+          }
+        },
+        "payload": {
+          "$ref": "#/components/schemas/CatalogService.SomeEvent"
+        }
+      }
+    },
+    "schemas": {
+      "CatalogService.SomeEvent": {
+        "type": "object",
+        "properties": {
+          "ID": { "type": "integer" },
+          "title": { "type": ["string", "null"] }
+        },
+        "required": ["ID"]
+      }
+    }
+  }
+}

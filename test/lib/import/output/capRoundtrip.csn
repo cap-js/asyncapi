@@ -1,0 +1,50 @@
+{
+  "$version": "2.0",
+  "definitions": {
+    "CatalogService": {
+      "kind": "service",
+      "@cds.external": "true",
+      "@AsyncAPI.Extensions": {
+        "sap-catalog-spec-version": "1.2",
+        "sap-application-namespace": "customer.my-app"
+      },
+      "@AsyncAPI.Title": "CatalogService",
+      "@AsyncAPI.SchemaVersion": "1.0.0"
+    },
+    "CatalogService.SomeEvent": {
+      "kind": "event",
+      "@cds.external": "true",
+      "@AsyncAPI.EventSource": "/{region}/{applicationNamespace}/{instanceId}",
+      "@AsyncAPI.EventSourceParams": {
+        "region": {
+          "description": "The regional context of the application.",
+          "schema": {
+            "type": "string"
+          }
+        },
+        "applicationNamespace": {
+          "description": "The registered namespace of the application.",
+          "schema": {
+            "type": "string"
+          }
+        },
+        "instanceId": {
+          "description": "The instance id (tenant, installation, ...) of the application.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      },
+      "@topic": "CatalogService.SomeEvent",
+      "elements": {
+        "ID": {
+          "@mandatory": true,
+          "type": "cds.Integer"
+        },
+        "title": {
+          "type": "cds.LargeString"
+        }
+      }
+    }
+  }
+}
