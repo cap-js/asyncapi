@@ -138,6 +138,7 @@
           }
         },
         "name": "com.sap.test.TestService.ChangeRequestEvent",
+        "x-sap-cds-service-name": "com.sap.test.TestService",
         "headers": {
           "type": "object",
           "properties": {
@@ -178,6 +179,7 @@
           }
         },
         "name": "com.sap.test.TestService.RiskEvent",
+        "x-sap-cds-service-name": "com.sap.test.TestService",
         "headers": {
           "type": "object",
           "properties": {
@@ -218,6 +220,7 @@
           }
         },
         "name": "com.sap.test.TestService.OpportunityEvent",
+        "x-sap-cds-service-name": "com.sap.test.TestService",
         "headers": {
           "type": "object",
           "properties": {

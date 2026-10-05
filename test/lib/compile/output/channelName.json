@@ -138,6 +138,7 @@
           }
         },
         "name": "study_material",
+        "x-sap-cds-service-name": "com.sap.channelname.StudyEventsService",
         "headers": {
           "type": "object",
           "properties": {
@@ -178,6 +179,7 @@
           }
         },
         "name": "study.status.changed.v1",
+        "x-sap-cds-service-name": "com.sap.channelname.StudyEventsService",
         "headers": {
           "type": "object",
           "properties": {
@@ -218,6 +220,7 @@
           }
         },
         "name": "com.sap.channelname.StudyEventsService.study_created",
+        "x-sap-cds-service-name": "com.sap.channelname.StudyEventsService",
         "headers": {
           "type": "object",
           "properties": {

@@ -138,6 +138,7 @@
           }
         },
         "name": "com.sap.annotations.S.RootEntityCreated",
+        "x-sap-cds-service-name": "com.sap.annotations.S",
         "headers": {
           "type": "object",
           "properties": {
@@ -178,6 +179,7 @@
           }
         },
         "name": "com.sap.annotations.S.InvalidAnnEntityCreated",
+        "x-sap-cds-service-name": "com.sap.annotations.S",
         "headers": {
           "type": "object",
           "properties": {
@@ -218,6 +220,7 @@
           }
         },
         "name": "com.sap.annotations.S.UnmatchedOidEntityCreated",
+        "x-sap-cds-service-name": "com.sap.annotations.S",
         "headers": {
           "type": "object",
           "properties": {

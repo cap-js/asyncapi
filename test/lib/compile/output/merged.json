@@ -131,6 +131,7 @@
           }
         },
         "name": "com.sap.bookstore.BookStore.Created",
+        "x-sap-cds-service-name": "com.sap.bookstore.BookStore",
         "headers": {
           "type": "object",
           "properties": {
@@ -171,6 +172,7 @@
           }
         },
         "name": "com.sap.bookstore.AuthorService.Created",
+        "x-sap-cds-service-name": "com.sap.bookstore.AuthorService",
         "headers": {
           "type": "object",
           "properties": {

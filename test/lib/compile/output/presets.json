@@ -127,6 +127,7 @@
           "state-transfer": "full-after-image"
         },
         "name": "com.sap.presets.S.Created",
+        "x-sap-cds-service-name": "com.sap.presets.S",
         "headers": {
           "type": "object",
           "properties": {

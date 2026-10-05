@@ -21,6 +21,7 @@
     "messages": {
       "CatalogService.SomeEvent": {
         "name": "CatalogService.SomeEvent",
+        "x-sap-cds-service-name": "CatalogService",
         "x-sap-event-source": "/{region}/{applicationNamespace}/{instanceId}",
         "x-sap-event-source-parameters": {
           "region": {

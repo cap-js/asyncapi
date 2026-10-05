@@ -145,6 +145,7 @@
           }
         },
         "name": "com.sap.test.MyService.Foo",
+        "x-sap-cds-service-name": "com.sap.test.MyService",
         "headers": {
           "type": "object",
           "properties": {
@@ -186,6 +187,7 @@
           }
         },
         "name": "com.sap.test.MyService.Bar",
+        "x-sap-cds-service-name": "com.sap.test.MyService",
         "headers": {
           "type": "object",
           "properties": {
@@ -227,6 +229,7 @@
           }
         },
         "name": "com.sap.test.MyService.Baz",
+        "x-sap-cds-service-name": "com.sap.test.MyService",
         "headers": {
           "type": "object",
           "properties": {
@@ -268,6 +271,7 @@
           }
         },
         "name": "com.sap.test.MyService.TestEvent",
+        "x-sap-cds-service-name": "com.sap.test.MyService",
         "headers": {
           "type": "object",
           "properties": {

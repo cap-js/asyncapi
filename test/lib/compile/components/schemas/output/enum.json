@@ -124,6 +124,7 @@
           }
         },
         "name": "com.sap.test.MyService.Created",
+        "x-sap-cds-service-name": "com.sap.test.MyService",
         "headers": {
           "type": "object",
           "properties": {

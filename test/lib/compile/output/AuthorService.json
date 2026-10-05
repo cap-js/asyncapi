@@ -125,6 +125,7 @@
           }
         },
         "name": "com.sap.bookstore.AuthorService.Created",
+        "x-sap-cds-service-name": "com.sap.bookstore.AuthorService",
         "headers": {
           "type": "object",
           "properties": {

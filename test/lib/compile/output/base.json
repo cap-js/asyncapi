@@ -164,6 +164,7 @@
         },
         "x-sap-event-version": "1.0.0",
         "name": "com.sap.base.MyName.v1",
+        "x-sap-cds-service-name": "com.sap.base.Base",
         "headers": {
           "type": "object",
           "properties": {
