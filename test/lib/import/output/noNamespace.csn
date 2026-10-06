@@ -1,0 +1,27 @@
+{
+    "$version": "2.0",
+    "definitions": {
+        "CatalogService": {
+            "kind": "service",
+            "@cds.external": "true",
+            "@AsyncAPI.Extensions": {
+                "sap-application-namespace": "customer.test"
+            },
+            "@AsyncAPI.Title": "CatalogService Events",
+            "@AsyncAPI.SchemaVersion": "1.0.0"
+        },
+        "CatalogService.SomeEvent": {
+            "kind": "event",
+            "@cds.external": "true",
+            "@topic": "CatalogService.SomeEvent",
+            "elements": {
+                "ID": {
+                    "type": "cds.UUID"
+                },
+                "title": {
+                    "type": "cds.LargeString"
+                }
+            }
+        }
+    }
+}

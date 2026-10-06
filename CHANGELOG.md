@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 - Optional CDS elements (no `key`, `not null`, `@mandatory`, or `@Common.FieldControl: #Mandatory`) are now exported as nullable JSON Schema types (e.g. `"type": ["string", "null"]`). Elements declared `not null` are also added to the `required` array.
 - `@topic` is now used as a fallback for the AsyncAPI channel name and CloudEvents event type when no explicit `@AsyncAPI.EventType` or `@AsyncAPI.ChannelName` is present, eliminating the need to duplicate the topic value in a second annotation.
+- Import now accepts message names without a multi-segment lowercase namespace (e.g. `CatalogService.SomeEvent`), enabling roundtrip import of documents produced from models that have no `namespace` declaration. The exporter now writes `x-service-name` on each message so the importer can resolve the service key directly instead of relying on name parsing.
 
 ## [1.1.0] - 2026-06-02
 

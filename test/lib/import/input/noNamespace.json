@@ -1,0 +1,68 @@
+{
+    "asyncapi": "2.0.0",
+    "x-sap-application-namespace": "customer.test",
+    "info": {
+        "version": "1.0.0",
+        "title": "CatalogService Events"
+    },
+    "defaultContentType": "application/json",
+    "channels": {
+        "CatalogService.SomeEvent": {
+            "subscribe": {
+                "message": {
+                    "$ref": "#/components/messages/CatalogService.SomeEvent"
+                }
+            }
+        }
+    },
+    "components": {
+        "messages": {
+            "CatalogService.SomeEvent": {
+                "name": "CatalogService.SomeEvent",
+                "headers": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "CatalogService.SomeEvent"
+                        }
+                    }
+                },
+                "payload": {
+                    "$ref": "#/components/schemas/CatalogService.SomeEvent"
+                },
+                "traits": [
+                    {
+                        "$ref": "#/components/messageTraits/CloudEventsContext.v1"
+                    }
+                ]
+            }
+        },
+        "messageTraits": {
+            "CloudEventsContext.v1": {
+                "headers": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "description": "Identifies the event.",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "schemas": {
+            "CatalogService.SomeEvent": {
+                "type": "object",
+                "properties": {
+                    "ID": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
