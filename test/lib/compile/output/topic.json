@@ -138,6 +138,7 @@
           }
         },
         "name": "some.very.different.topic-name",
+        "x-service-name": "my.namespace.TopicService",
         "headers": {
           "type": "object",
           "properties": {
@@ -178,6 +179,7 @@
           }
         },
         "name": "explicit.event.type",
+        "x-service-name": "my.namespace.TopicService",
         "headers": {
           "type": "object",
           "properties": {
@@ -218,6 +220,7 @@
           }
         },
         "name": "topic-used-as-event-type",
+        "x-service-name": "my.namespace.TopicService",
         "headers": {
           "type": "object",
           "properties": {
